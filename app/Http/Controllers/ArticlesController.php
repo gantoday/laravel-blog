@@ -34,7 +34,9 @@ class ArticlesController extends Controller {
 	{
 		$tags = \App\Tag::lists('name', 'id');
 
-		return view('articles.create', compact('tags'));
+		$categories = \App\Category::lists('name', 'id');
+
+		return view('articles.create', compact('tags', 'categories'));
 	}
 
 	/**
@@ -74,7 +76,11 @@ class ArticlesController extends Controller {
 
 		$tags = \App\Tag::lists('name', 'id');
 
-		return view('articles.edit',compact('article', 'tags'));
+		$categories = \App\Category::lists('name', 'id');
+
+		$category = $article->category_id;
+
+		return view('articles.edit',compact('article', 'tags', 'categories', 'category'));
 	}
 
 	/**
