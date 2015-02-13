@@ -23,5 +23,10 @@
 			placeholder: 'Choose a tag',
 			tags: true
 		});
+        $(function() {
+            $('textarea').inlineattachment({
+                uploadUrl: '/upload_attachment.php'
+            });
+        });
 	</script>
 @endsection
