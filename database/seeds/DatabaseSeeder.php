@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		\App\Category::create([
-			'name' => 'work'
+			'name' => 'un-category'
 		]);
 
 		\App\Category::create([
@@ -43,13 +43,14 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		\App\Category::create([
-			'name' => 'local'
+			'name' => 'work'
 		]);
 
 		\App\Article::create([
 			'user_id' => '1',
 			'category_id' => '2',
 			'title' => 'Article title one',
+			'slug' => 'article title one',
 			'body' => 'article body one article body one article body one article body one article body one article body one article body one article body one article body one article body one article body one article body one article body one article body one '
 		]);
 
@@ -57,6 +58,7 @@ class DatabaseSeeder extends Seeder {
 			'user_id' => '1',
 			'category_id' => '3',
 			'title' => 'Article title two',
+			'slug' => 'article title two',
 			'body' => 'article body two article body two article body two article body two article body two article body two article body two article body two article body two article body two article body two article body two article body two article body two '
 		]);
 
@@ -64,43 +66,46 @@ class DatabaseSeeder extends Seeder {
 			'user_id' => '1',
 			'category_id' => '1',
 			'title' => 'Article title three',
+			'slug' => 'article title three',
 			'body' => 'article body three article body three article body three article body three article body three article body three article body three article body three article body three article body three article body three article body three article body three'
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '1',
 			'tag_id' => 1,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '1',
 			'tag_id' => 3,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '2',
 			'tag_id' => 2,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '2',
 			'tag_id' => 3,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '3',
 			'tag_id' => 1,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '3',
 			'tag_id' => 2,
 		]);
 
-		\App\ArticleTag::create([
+		\App\ArticleTagPrivot::create([
 			'article_id' => '3',
 			'tag_id' => 3,
 		]);
+
+		$this->call('ArticlesTableSeeder');
 
 	}
 

@@ -1,7 +1,7 @@
 <?php
 
-$uploadFolder = __DIR__ . '/';
-$onlinePath = 'http://localhost/inlineattachment/data/';
+$uploadFolder = __DIR__.'/uploads/images/';
+$onlinePath = '/uploads/images/';
 
 $response = array();
 

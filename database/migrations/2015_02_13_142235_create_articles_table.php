@@ -15,12 +15,12 @@ class CreateArticlesTable extends Migration {
 		Schema::create('articles', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->integer('category_id')->unsigned();
 			$table->string('title');
             $table->text('body');
-            $table->string('alias')->nullable();
-            $table->integer('click')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('click')->default(100);
+			$table->integer('user_id')->unsigned();
+			$table->integer('category_id')->unsigned();
 			$table->softDeletes();
 			$table->timestamps();
 

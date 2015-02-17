@@ -24,6 +24,9 @@ class ArticleRequest extends Request {
 		return [
 			'title'=>'required|min:3',
 			'body'=>'required',
+			'category_id'=>'required|exists:categories,id',
+			'tag_list'=>'required',
+			'slug'=>'required',
 		];
 	}
 

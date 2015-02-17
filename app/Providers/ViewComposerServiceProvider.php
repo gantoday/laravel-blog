@@ -26,7 +26,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 
 	private function composeNavgation()
 	{
-		view()->composer('partials.nav',function($view){
+		view()->composer('home.partials.nav',function($view){
 			$view->with('allPages','This could be see all pages');
 		});
 	}
