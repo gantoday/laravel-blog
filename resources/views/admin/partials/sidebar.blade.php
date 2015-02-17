@@ -22,7 +22,7 @@
                         <a href="/admin/articles/index">All Articles</a>
                     </li>
                     <li>
-                        <a href="/admin/articles/create">Add Articles</a>
+                        <a href="/admin/articles/create">Add Article</a>
                     </li>
                     <li>
                         <a href="/admin/articles/trash">Articles Trash</a>
@@ -34,10 +34,10 @@
                 <a href="#"><i class="fa fa-book fa-fw"></i> Categorys<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/categories?">All Categorys</a>
+                        <a href="/admin/categories/index">All Categorys</a>
                     </li>
                     <li>
-                        <a href="/admin/categories/create?">Add Categorys</a>
+                        <a href="/admin/categories/create">Add Category</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -46,16 +46,16 @@
                 <a href="#"><i class="fa fa-tags fa-fw"></i> Tags<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/tags?">All Tags</a>
+                        <a href="/admin/tags/index">All Tags</a>
                     </li>
                     <li>
-                        <a href="/admin/tags/create?">Add Tags</a>
+                        <a href="/admin/tags/create">Add Tag</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Setting</a>
+                <a href="/admin/setting/index"><i class="fa fa-cog fa-fw"></i> Setting</a>
             </li>
         </ul>
     </div>

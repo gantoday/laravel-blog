@@ -9,5 +9,9 @@ class Category extends Model {
     public function articles() {
 		return $this -> hasMany('App\Article');
 	}
-
+    
+    public function setSlugAttribute($data)
+    {
+        $this->attributes['slug']=str_slug($data);
+    }
 }

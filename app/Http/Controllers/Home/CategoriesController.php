@@ -1,11 +1,11 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\Home;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class TagController extends Controller {
+class CategoriesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.

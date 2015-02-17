@@ -2,10 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Tag;
+use App\Http\Requests\TagRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
+class TagsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +15,9 @@ class CategoryController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$tags = Tag::latest()->paginate(15);
+        
+		return view('admin.tags.index',compact('tags'));
 	}
 
 	/**
@@ -24,7 +27,9 @@ class CategoryController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$tags = \App\Tag::lists('name', 'id');
+
+		return view('admin.tags.create', compact('tags'));
 	}
 
 	/**
@@ -32,9 +37,13 @@ class CategoryController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(TagRequest $request)
 	{
-		//
+		Tag::create($request->all());
+
+		flash()->success('Your tag has been created!');
+
+		return redirect('admin/tags/index');
 	}
 
 	/**
@@ -43,9 +52,11 @@ class CategoryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		//
+        $tag = Tag::findBySlug($slug);
+		
+		return view('tags.show',compact('tag'));
 	}
 
 	/**
@@ -56,7 +67,11 @@ class CategoryController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        $tag = Tag::findOrFail($id);
+
+		$tags = \App\Tag::lists('name', 'id');
+
+		return view('admin.tags.edit',compact('tag', 'tags'));
 	}
 
 	/**
@@ -65,9 +80,13 @@ class CategoryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(TagRequest $request, $id)
 	{
-		//
+        $tag = Tag::findOrFail($id);
+
+		$tag->update($request->all());
+
+		return redirect('admin/tags/index');
 	}
 
 	/**
@@ -78,7 +97,9 @@ class CategoryController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Tag::find($id)->delete();
+
+        return redirect('admin/tags/trash');
 	}
 
 }

@@ -14,18 +14,21 @@
 /**
  * home
  */
-Route::get('/', function(){
-	return 'Home Page';
+Route::group(['namespace' => 'Home'], function()
+{
+    Route::get('/', function(){
+    	return 'Home Page';
+    });
+
+    Route::resource('articles','ArticlesController');
+
+    Route::post('uploadImage', 'ArticlesController@uploadImage');
+    /*Route::get('articles/create','ArticleController@create');
+    Route::get('articles/{id}', 'ArticleController@show');
+    Route::post('articles','ArticleController@store');
+    Route::get('articles/{id}/edit','ArticleController@edit');
+    */
 });
-
-Route::resource('articles','ArticleController');
-
-Route::post('uploadImage', 'ArticleController@uploadImage');
-/*Route::get('articles/create','ArticleController@create');
-Route::get('articles/{id}', 'ArticleController@show');
-Route::post('articles','ArticleController@store');
-Route::get('articles/{id}/edit','ArticleController@edit');
-*/
 
 
 /**
@@ -35,11 +38,20 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
 {
     Route::get('index','AdminController@index');
 
-    Route::get('articles/index','ArticleController@index');
-    Route::get('articles/trash','ArticleController@trash');
-    Route::post('articles/restore/{id}','ArticleController@restore');
-    Route::delete('articles/forceDelete/{id}','ArticleController@forceDelete');
-    Route::resource('articles','ArticleController');
+    Route::get('articles/index','ArticlesController@index');
+    Route::get('articles/trash','ArticlesController@trash');
+    Route::post('articles/restore/{id}','ArticlesController@restore');
+    Route::delete('articles/forceDelete/{id}','ArticlesController@forceDelete');
+    Route::resource('articles','ArticlesController');
+
+    Route::get('categories/index','CategoriesController@index');
+    Route::resource('categories','CategoriesController');
+
+    Route::get('tags/index','TagsController@index');
+    Route::resource('tags','TagsController');
+
+    Route::get('setting/index','SettingsController@index');
+    Route::patch('setting/index','SettingsController@index');
 });
 
 
@@ -64,11 +76,6 @@ Route::get('foo',function(){
 Route::get('bar',function(){
 
 
-return '
-<form method="POST" style="float: left;" action="http://blog.app:8000/admin/articles/105/restore" accept-charset="UTF-8"><input name="_token" type="hidden" value="sggC4SeNQFbTNmZWiQLsxsex0m4pckQN5d0cOqPC">
-    <button type="submit" class="btn btn-success btn-sm iframe cboxElement"><span class="glyphicon glyphicon-pencil"></span> Restore</button>
-</form><form method="POST" style="float: left;" action="http://blog.app:8000/admin/articles/105/foceDelete" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="sggC4SeNQFbTNmZWiQLsxsex0m4pckQN5d0cOqPC">
-    <button type="submit" class="btn btn-sm btn-danger iframe cboxElement"><span class="glyphicon glyphicon-trash"></span> Destroy</button>
-</form>';
+return dd(str_slug('呵呵呵呵'));
 
 });

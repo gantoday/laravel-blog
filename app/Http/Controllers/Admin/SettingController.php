@@ -1,11 +1,12 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Setting;
+use App\Http\Requests\SettingRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
+class SettingsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.

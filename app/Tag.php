@@ -6,15 +6,15 @@ class Tag extends Model {
 
 	protected $fillable = ['name', 'slug'];
 
-	public function setSlugAttribute($data)
-	{
-            $this->attributes['slug']=mb_strtolower($data);
-	}
-
 	public function articles()
 	{
-		return $this->belongToMany('App\Article');
+		return $this->belongsToMany('App\Article');
 	}
+
+    public function setSlugAttribute($data)
+    {
+        $this->attributes['slug']=str_slug($data);
+    }
 
 
 }

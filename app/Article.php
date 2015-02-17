@@ -31,12 +31,12 @@ class Article extends Model {
     	return $this->tags->lists('id');
     }
 
-    /*public function getBodyAttribute($value)
+    public function getBodyHtmlAttribute()
     {
-        $Parsedown = new \App\Extensions\Parsedown\Parsedown();
+        $Parsedown = new \Parsedown();
 
-        return $Parsedown->text($value);
-    }*/
+        return $Parsedown->text($this->body);
+    }
 
     public function setSlugAttribute($data)
     {

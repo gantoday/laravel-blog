@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Home;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Input;
 
-class ArticleController extends Controller {
+class ArticlesController extends Controller {
 
 	public function __construct()
 	{

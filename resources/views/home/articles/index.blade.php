@@ -6,7 +6,7 @@
 	
 	@foreach($articles as $article)
 		<h2>
-			<a href="{{ action('ArticleController@show',[$article->slug]) }}">{{ $article->title }}</a>
+			<a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
 		</h2>
 		<h4>
 			Category:{{ $article->category->name }} | 

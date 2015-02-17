@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Input;
 
-class ArticleController extends Controller {
+class ArticlesController extends Controller {
 
 	public function __construct()
 	{
@@ -98,7 +98,7 @@ class ArticleController extends Controller {
 
 		$this->syncTags($article, $request->input('tag_list'));
 
-		return redirect('articles');
+		return redirect('admin/articles/index');
 	}
 
 	/**
