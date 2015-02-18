@@ -9,6 +9,8 @@ class Article extends Model {
 
     protected $dates = ['deleted_at'];
 
+    protected $appends = ['tag_list', 'body_html'];
+
 	protected $fillable = ['title', 'body', 'slug', 'click', 'user_id', 'category_id'];
 
     public function user()
@@ -43,7 +45,7 @@ class Article extends Model {
         $this->attributes['slug']=str_slug($data);
     }
 
-    public static function scopeFindBySlug($query, $slug)
+    public function scopeFindBySlug($query, $slug)
     {
         return $query->whereSlug($slug)->firstOrFail();
     }

@@ -15,11 +15,11 @@
 
 <div class="form-group">
     {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+    {!! Form::select('category_id', $categories, null, ['id' => 'category_id', 'class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('tag_list', 'Tags:') !!}
+    {!! Form::label('tags', 'Tags:') !!}
     {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
 </div>
 
@@ -40,6 +40,7 @@
 			placeholder: 'Choose a tag',
 			tags: true
 		});
+        $('#category_id').select2();
         $(function() {
             $('textarea').inlineattachment({
                 uploadUrl: '/upload.php'

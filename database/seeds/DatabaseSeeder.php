@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		\App\Category::create([
-			'name' => 'family'
+			'name' => 'family',
+			'parent_id' => '1'
 		]);
 
 		\App\Category::create([

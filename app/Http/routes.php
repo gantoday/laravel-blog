@@ -75,7 +75,18 @@ Route::get('foo',function(){
 
 Route::get('bar',function(){
 
-
-return dd(str_slug('呵呵呵呵'));
+    $categories = \App\Category::all();
+    $result = array();
+    foreach ($categories as $key => $category) {
+        if ( $category->parent_id == 0 ) {
+            $result[$category->name] = array();
+            foreach ($categories as $skey => $scategory) {
+                if ($scategory->parent_id == $category->id) {
+                    $result[$category->name][] = $scategory->name;
+                }
+            }
+        }
+    }
+    return var_dump($result);
 
 });

@@ -99,7 +99,7 @@ class TagsController extends Controller {
 	{
 		Tag::find($id)->delete();
 
-        return redirect('admin/tags/trash');
+        return redirect('admin/tags/index');
 	}
 
 }

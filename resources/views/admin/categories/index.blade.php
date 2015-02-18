@@ -44,18 +44,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">
-                    每页{{ $categories->count() }}条,共{{ $categories->lastPage() }}页,总{{ $categories->total() }}条.
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                    {!! $categories->render() !!}
-                </div>
-            </div>
-        </div>
     </div>
     <!-- /.col-lg-12 -->
 </div>

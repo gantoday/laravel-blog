@@ -9,6 +9,11 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('parent', 'Parent:') !!}
+    {!! Form::select('parent_id', $categories, null, ['id' => 'parent_id', 'class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
 </div>
 
@@ -17,10 +22,8 @@
 @endsection
 
 @section('footer')
+	<script src="/assets/admin/js/select2.min.js"></script>
 	<script>
-		$('#tag_list').select2({
-			placeholder: 'Choose a tag',
-			tags: true
-		});
+		$('#parent_id').select2();
 	</script>
 @endsection

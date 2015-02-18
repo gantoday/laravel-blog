@@ -16,5 +16,5 @@
 		@endunless
 		| Click: {{ $article->click }}
 	</h3>
-	<div class="body">{!! $article->bodyHtml !!}</div>
+	<div class="body">{!! $article->body_html !!}</div>
 @stop

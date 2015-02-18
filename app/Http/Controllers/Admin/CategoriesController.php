@@ -15,7 +15,7 @@ class CategoriesController extends Controller {
 	 */
 	public function index()
 	{
-		$categories = Category::latest()->paginate(15);
+		$categories = Category::latest()->get();
         
 		return view('admin.categories.index',compact('categories'));
 	}
@@ -27,7 +27,9 @@ class CategoriesController extends Controller {
 	 */
 	public function create()
 	{
-		$categories = \App\Category::lists('name', 'id');
+		$categories = \App\Category::getTopLevel()->lists('name', 'id');
+
+		$categories =['0' => '/'] + $categories;
 
 		return view('admin.categories.create', compact('categories'));
 	}
@@ -69,7 +71,9 @@ class CategoriesController extends Controller {
 	{
         $category = Category::findOrFail($id);
 
-		$categories = \App\Category::lists('name', 'id');
+		$categories = \App\Category::getTopLevel()->lists('name', 'id');
+
+		$categories =['0' => '/'] + $categories;
 
 		return view('admin.categories.edit',compact('category', 'categories'));
 	}
@@ -99,7 +103,7 @@ class CategoriesController extends Controller {
 	{
 		Category::find($id)->delete();
 
-        return redirect('admin/categories/trash');
+        return redirect('admin/categories/index');
 	}
 
 }
