@@ -35,7 +35,7 @@ class ArticlesController extends Controller {
 	{
 		$tags = \App\Tag::lists('name', 'id');
 
-		$categories = \App\Category::lists('name', 'id');
+		$categories = \App\Category::getLeveledCategories();
 
 		return view('admin.articles.create', compact('tags', 'categories'));
 	}
@@ -79,7 +79,7 @@ class ArticlesController extends Controller {
 
 		$tags = \App\Tag::lists('name', 'id');
 
-		$categories = \App\Category::lists('name', 'id');
+		$categories = \App\Category::getLeveledCategories();
 
 		return view('admin.articles.edit',compact('article', 'tags', 'categories'));
 	}

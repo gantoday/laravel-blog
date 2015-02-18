@@ -26,7 +26,10 @@
                 @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->id }}</td>
-                        <td>{{ $category->name }}</td>
+                        <td>
+                            @if($category->parent_id) &nbsp;&nbsp;&nbsp;— @endif
+                            {{ $category->name }}
+                        </td>
                         <td>{{ $category->slug }}</td>
                         <td>{{ $category->articles()->count() }}</td>
                         <td>{{ $category->created_at }}</td>

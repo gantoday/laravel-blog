@@ -15,7 +15,14 @@
 
 <div class="form-group">
     {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category_id', $categories, null, ['id' => 'category_id', 'class' => 'form-control']) !!}
+    <select class="form-control" name="category_id" id="category_id">
+        @foreach ($categories['top'] as $top_category)
+            <option value="{{ $top_category->id }}">{{ $top_category->name }}</option>
+            @foreach ($categories['second'][$top_category->id] as $scategory)
+                <option value="{{ $scategory->id }}">&nbsp;&nbsp;&nbsp;{{ $scategory->name }}</option>
+            @endforeach
+        @endforeach
+    </select>
 </div>
 
 <div class="form-group">

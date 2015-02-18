@@ -15,7 +15,7 @@ class CategoriesController extends Controller {
 	 */
 	public function index()
 	{
-		$categories = Category::latest()->get();
+		$categories = Category::getSortedCategories();
         
 		return view('admin.categories.index',compact('categories'));
 	}
