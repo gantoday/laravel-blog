@@ -3,7 +3,9 @@
 @section('content')
 
 	<h1>{{ $article->title }}</h1> 
-	<a href='/articles/{{ $article->id }}/edit'>Edit</a> <a href='/articles/{{ $article->id }}/destroy'>Delete</a>
+	@if(Auth::user())
+		<a href='/admin/articles/{{ $article->id }}/edit'>Edit</a>
+	@endif
 	<hr/>
 
 	<h3>

@@ -51,7 +51,7 @@ class ArticlesController extends Controller {
 
 		flash()->success('Your article has been created!');
 
-		return redirect('admin/articles');
+		return redirect('admin/articles/index');
 	}
 
 	/**
@@ -125,7 +125,7 @@ class ArticlesController extends Controller {
     {
         Article::onlyTrashed()->find($id)->restore();
 
-        return redirect('admin/articles');
+        return redirect('admin/articles/index');
     }
 
     public function forceDelete($id)
@@ -146,28 +146,5 @@ class ArticlesController extends Controller {
 
 		$this->syncTags($article, $request->input('tag_list'));
 	}
-
-	public function uploadImage()
-    {
-        $data = [
-            'success' => false,
-            'msg' => 'Failed!',
-            'file_path' => ''
-        ];
-
-        if ($file = Input::file('upload_file'))
-        {
-            $fileName        = $file->getClientOriginalName();
-            $extension       = $file->getClientOriginalExtension() ?: 'png';
-            $folderName      = '/images';
-            $destinationPath = public_path() . $folderName;
-            $safeName        = uniqid().'.'.$extension;
-            $file->move($destinationPath, $safeName);
-            $data['success'] = true;
-            $data['msg'] = "Succeeded!";
-            $data['file_path'] = $folderName .'/'. $safeName;
-        }
-        return $data;
-    }
 
 }

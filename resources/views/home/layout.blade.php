@@ -10,11 +10,11 @@
 	@include('home.partials.nav')
 
 	<div class="container">
+		<div class="row">
+			@include('flash::message')
 
-		@include('flash::message')
-
-		@yield('content')
-
+			@yield('content')
+		</div>
 	</div>
 
 	

@@ -16,17 +16,15 @@
  */
 Route::group(['namespace' => 'Home'], function()
 {
-    Route::get('/', function(){
-    	return 'Home Page';
-    });
 
-    Route::resource('articles','ArticlesController');
-
+    Route::resource('/','ArticlesController@index');
+    Route::get('articles', 'ArticlesController@index');
+    Route::get('articles/{slug}', 'ArticlesController@show');
     Route::post('uploadImage', 'ArticlesController@uploadImage');
-    /*Route::get('articles/create','ArticleController@create');
-    Route::get('articles/{id}', 'ArticleController@show');
-    Route::post('articles','ArticleController@store');
-    Route::get('articles/{id}/edit','ArticleController@edit');
+    /*Route::get('articles/create','ArticlesController@create');
+    Route::get('articles/{id}', 'ArticlesController@show');
+    Route::post('articles','ArticlesController@store');
+    Route::get('articles/{id}/edit','ArticlesController@edit');
     */
 });
 
@@ -34,7 +32,7 @@ Route::group(['namespace' => 'Home'], function()
 /**
  * admin
  */
-Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'], function()
 {
     Route::get('index','AdminController@index');
 
@@ -55,15 +53,19 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
 });
 
 
-
 /**
- * others
+ * auth
  */
-Route::controllers([
+Route::get('login','Admin\AuthController@getLogin');
+Route::post('login','Admin\AuthController@postLogin');
+Route::get('logout','Admin\AuthController@logout');
+
+
+/*Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
+*/
 
 
 Route::get('foo',function(){
