@@ -22,7 +22,7 @@ class ArticlesController extends Controller {
 	public function index()
 	{
 		$articles = Article::latest()->paginate(15);
-        
+		
 		return view('admin.articles.index',compact('articles'));
 	}
 
@@ -62,7 +62,7 @@ class ArticlesController extends Controller {
 	 */
 	public function show($slug)
 	{
-        $article = Article::findBySlug($slug);
+		$article = Article::findBySlug($slug);
 		
 		return view('articles.show',compact('article'));
 	}
@@ -75,7 +75,7 @@ class ArticlesController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $article = Article::findOrFail($id);
+		$article = Article::findOrFail($id);
 
 		$tags = \App\Tag::lists('name', 'id');
 
@@ -92,7 +92,7 @@ class ArticlesController extends Controller {
 	 */
 	public function update(ArticleRequest $request, $id)
 	{
-        $article = Article::findOrFail($id);
+		$article = Article::findOrFail($id);
 
 		$article->update($request->all());
 
@@ -111,32 +111,40 @@ class ArticlesController extends Controller {
 	{
 		Article::find($id)->delete();
 
-        return redirect('admin/articles/trash');
+		return redirect('admin/articles/trash');
 	}
 
-    public function trash()
-    {
-        $articles = Article::onlyTrashed()->latest('deleted_at')->paginate(15);
-        
-        return view('admin.articles.trash', compact('articles'));
-    }
+	public function trash()
+	{
+		$articles = Article::onlyTrashed()->latest('deleted_at')->paginate(15);
+		
+		return view('admin.articles.trash', compact('articles'));
+	}
 
-    public function restore($id)
-    {
-        Article::onlyTrashed()->find($id)->restore();
+	public function restore($id)
+	{
+		Article::onlyTrashed()->find($id)->restore();
 
-        return redirect('admin/articles/index');
-    }
+		return redirect('admin/articles/index');
+	}
 
-    public function forceDelete($id)
-    {
-        Article::onlyTrashed()->find($id)->forceDelete();
+	public function forceDelete($id)
+	{
+		Article::onlyTrashed()->find($id)->forceDelete();
 
-        return redirect('admin/articles/trash');
-    }
+		return redirect('admin/articles/trash');
+	}
 
 	public function syncTags(Article $article, array $tags)
 	{
+		foreach ($tags as $key => $tag) {
+			if(!is_numeric($tag))
+			{
+				$newTag = \App\Tag::create(['name' => $tag]);
+				$tags[$key] = $newTag->id;
+			}
+		}
+
 		$article->tags()->sync($tags);
 	}
 
