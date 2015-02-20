@@ -16,7 +16,7 @@ class CategoriesController extends Controller {
 	public function index()
 	{
 		$categories = Category::getSortedCategories();
-        
+		
 		return view('admin.categories.index',compact('categories'));
 	}
 
@@ -56,7 +56,7 @@ class CategoriesController extends Controller {
 	 */
 	public function show($slug)
 	{
-        $category = Category::findBySlug($slug);
+		$category = Category::findBySlug($slug);
 		
 		return view('categories.show',compact('category'));
 	}
@@ -69,7 +69,7 @@ class CategoriesController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $category = Category::findOrFail($id);
+		$category = Category::findOrFail($id);
 
 		$categories = \App\Category::getTopLevel()->lists('name', 'id');
 
@@ -86,7 +86,7 @@ class CategoriesController extends Controller {
 	 */
 	public function update(CategoryRequest $request, $id)
 	{
-        $category = Category::findOrFail($id);
+		$category = Category::findOrFail($id);
 
 		$category->update($request->all());
 
@@ -103,7 +103,7 @@ class CategoriesController extends Controller {
 	{
 		Category::find($id)->delete();
 
-        return redirect('admin/categories/index');
+		return redirect('admin/categories/index');
 	}
 
 }

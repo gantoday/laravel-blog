@@ -29,26 +29,26 @@ class ArticlesController extends Controller {
 	 */
 	public function show($slug)
 	{
-        $article = Article::findBySlug($slug);
+		$article = Article::findBySlug($slug);
 		
 		return view('home.articles.show',compact('article'));
 	}
 
 	public function uploadImage()
-    {
-        $data = array();
+	{
+		$data = array();
 
-        if ($file = Input::file('upload_file'))
-        {
-            $fileName        = $file->getClientOriginalName();
-            $extension       = $file->getClientOriginalExtension() ?: 'png';
-            $folderName      = '/uploads/images/';
-            $destinationPath = public_path() . $folderName;
-            $safeName        = uniqid().'.'.$extension;
-            $file->move($destinationPath, $safeName);
-            $data['filename'] = $folderName . $safeName;
-        }
-        return $data;
-    }
+		if ($file = Input::file('upload_file'))
+		{
+			$fileName        = $file->getClientOriginalName();
+			$extension       = $file->getClientOriginalExtension() ?: 'png';
+			$folderName      = '/uploads/images/';
+			$destinationPath = public_path() . $folderName;
+			$safeName        = uniqid().'.'.$extension;
+			$file->move($destinationPath, $safeName);
+			$data['filename'] = $folderName . $safeName;
+		}
+		return $data;
+	}
 
 }

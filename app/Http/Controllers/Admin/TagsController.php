@@ -16,7 +16,7 @@ class TagsController extends Controller {
 	public function index()
 	{
 		$tags = Tag::latest()->paginate(15);
-        
+		
 		return view('admin.tags.index',compact('tags'));
 	}
 
@@ -54,7 +54,7 @@ class TagsController extends Controller {
 	 */
 	public function show($slug)
 	{
-        $tag = Tag::findBySlug($slug);
+		$tag = Tag::findBySlug($slug);
 		
 		return view('tags.show',compact('tag'));
 	}
@@ -67,7 +67,7 @@ class TagsController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $tag = Tag::findOrFail($id);
+		$tag = Tag::findOrFail($id);
 
 		$tags = \App\Tag::lists('name', 'id');
 
@@ -82,7 +82,7 @@ class TagsController extends Controller {
 	 */
 	public function update(TagRequest $request, $id)
 	{
-        $tag = Tag::findOrFail($id);
+		$tag = Tag::findOrFail($id);
 
 		$tag->update($request->all());
 
@@ -99,7 +99,7 @@ class TagsController extends Controller {
 	{
 		Tag::find($id)->delete();
 
-        return redirect('admin/tags/index');
+		return redirect('admin/tags/index');
 	}
 
 }
