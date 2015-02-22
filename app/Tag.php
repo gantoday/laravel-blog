@@ -11,10 +11,15 @@ class Tag extends Model {
 		return $this->belongsToMany('App\Article');
 	}
 
-    public function setSlugAttribute($data)
-    {
-        $this->attributes['slug']=str_slug($data);
-    }
+	public function setSlugAttribute($data)
+	{
+		$this->attributes['slug']=str_slug($data);
+	}
+
+	public function scopeFindBySlug($query, $slug)
+	{
+		return $query->whereSlug($slug)->firstOrFail();
+	}
 
 
 }

@@ -3,7 +3,7 @@
 		<h4>Tags</h4>
 		<ol class="list-unstyled">
 			@foreach($allTags as $tag)
-				<li><a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a></li>
+				<li><a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a></li> 
 			@endforeach 
 		</ol>
 	</div>
