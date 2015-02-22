@@ -28,9 +28,9 @@ class TagsController extends Controller {
 		//$articles = Tag::findBySlug($slug)->articles()->latest('articles.created_at')->paginate(8);
 
 		$articles = \App\Article::with('tags', 'category')->whereHas('tags', function($query) use($slug)
-	    {
-	        $query->whereSlug($slug);
-	    })->latest()->paginate(8);
+		{
+			$query->whereSlug($slug);
+		})->latest()->paginate(8);
 
 		return view('home.tags.show',compact('articles'));
 	}
