@@ -140,7 +140,7 @@ class ArticlesController extends Controller {
 		foreach ($tags as $key => $tag) {
 			if(!is_numeric($tag))
 			{
-				$newTag = \App\Tag::create(['name' => $tag]);
+				$newTag = \App\Tag::create(['name' => $tag, 'slug' => $tag]);
 				$tags[$key] = $newTag->id;
 			}
 		}

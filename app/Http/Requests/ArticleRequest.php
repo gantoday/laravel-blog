@@ -27,6 +27,7 @@ class ArticleRequest extends Request {
 			'category_id'=>'required|exists:categories,id',
 			'tag_list'=>'required',
 			'slug'=>'required',
+			'original'=>'url'
 		];
 	}
 

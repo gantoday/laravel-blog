@@ -26,8 +26,11 @@ class ViewComposerServiceProvider extends ServiceProvider {
 
 	private function composeNavgation()
 	{
-		view()->composer('home.partials.nav',function($view){
-			$view->with('allPages','This could be see all pages');
+		view()->composer('home.partials.sidebar',function($view){
+			$allTags=\App\Tag::all();
+			$NewestArticles=\App\Article::latest()->take(15)->get();
+			$hottestArticles=\App\Article::orderBy('click')->take(15)->get();
+			$view->with(compact('allTags','NewestArticles','hottestArticles'));
 		});
 	}
 }

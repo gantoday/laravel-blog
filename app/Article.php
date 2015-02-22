@@ -9,9 +9,9 @@ class Article extends Model {
 
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['tag_list', 'body_html'];
+    protected $appends = ['tag_list', 'body_html', 'timeDiffForHumans'];
 
-	protected $fillable = ['title', 'body', 'slug', 'click', 'user_id', 'category_id'];
+	protected $fillable = ['title', 'body', 'slug', 'click', 'user_id', 'category_id', 'original'];
 
     public function user()
     {
@@ -38,6 +38,11 @@ class Article extends Model {
         $Parsedown = new \Parsedown();
 
         return $Parsedown->text($this->body);
+    }
+
+    public function getTimeDiffForHumansAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 
     public function setSlugAttribute($data)
