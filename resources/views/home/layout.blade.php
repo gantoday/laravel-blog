@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
+	<meta name="description" content="{{ $settings['site_description'] }}">
 	<meta name="author" content="">
 
-	<title>Blog Template for Bootstrap</title>
+	<title>{{ $settings['site_name'] }}</title>
 	
 	@include('home.partials.header')
 
@@ -20,8 +20,8 @@
 	<div class="container">
 
 		<div class="blog-header">
-			<h1 class="blog-title">The Bootstrap Blog</h1>
-			<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+			<h1 class="blog-title">{{ $settings['site_name'] }}</h1>
+			<p class="lead blog-description">{{ $settings['site_description'] }}</p>
 		</div>
 
 		<div class="row">

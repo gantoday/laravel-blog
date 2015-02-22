@@ -11,25 +11,6 @@
 |
 */
 
-/**
- * home
- */
-Route::group(['namespace' => 'Home'], function()
-{
-
-    Route::resource('/','ArticlesController@index');
-
-    Route::get('tags', 'TagsController@index');
-    Route::get('tags/{slug}', 'TagsController@show');
-
-    Route::get('categories', 'CategoriesController@index');
-    Route::get('categories/{slug}', 'CategoriesController@show');
-
-    Route::get('articles', 'ArticlesController@index');
-    Route::get('{slug}', 'ArticlesController@show');
-    Route::post('uploadImage', 'ArticlesController@uploadImage');
-});
-
 
 /**
  * admin
@@ -83,3 +64,24 @@ Route::get('bar',function(){
     return $id;
 
 });
+
+
+/**
+ * home
+ */
+Route::group(['namespace' => 'Home'], function()
+{
+
+    Route::resource('/','ArticlesController@index');
+
+    Route::get('tags', 'TagsController@index');
+    Route::get('tags/{slug}', 'TagsController@show');
+
+    Route::get('categories', 'CategoriesController@index');
+    Route::get('categories/{slug}', 'CategoriesController@show');
+
+    Route::get('articles', 'ArticlesController@index');
+    Route::get('{slug}', 'ArticlesController@show');
+    Route::post('uploadImage', 'ArticlesController@uploadImage');
+});
+

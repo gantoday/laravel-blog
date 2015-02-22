@@ -12,8 +12,9 @@
 		about {{ $article->timeDiffForHumans }}.</p>
 		{!! $article->body_html !!}
 		@unless(is_null($article->original))
-			<p>来源:{{ $article->original }}</p>
+			<p>参考来源:<br>{{ $article->original }}</p>
 		@endunless
+		<p>本文链接:<br>http://www.90door.com/{{ $article->slug }}</p>
 	</div><!-- /.blog-post -->
 	<hr>
 

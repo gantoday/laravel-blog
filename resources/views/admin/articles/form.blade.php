@@ -18,9 +18,11 @@
 	<select class="form-control" name="category_id" id="category_id">
 		@foreach ($categories['top'] as $top_category)
 			<option value="{{ $top_category->id }}">{{ $top_category->name }}</option>
-			@foreach ($categories['second'][$top_category->id] as $scategory)
-				<option value="{{ $scategory->id }}">&nbsp;&nbsp;&nbsp;{{ $scategory->name }}</option>
-			@endforeach
+			@if(isset($categories['second'][$top_category->id]))
+				@foreach ($categories['second'][$top_category->id] as $scategory)
+					<option value="{{ $scategory->id }}">&nbsp;&nbsp;&nbsp;{{ $scategory->name }}</option>
+				@endforeach
+			@endif
 		@endforeach
 	</select>
 </div>
