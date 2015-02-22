@@ -16,7 +16,7 @@ class ArticlesController extends Controller {
 	 */
 	public function index()
 	{
-		$articles = Article::latest()->paginate(8);
+		$articles = Article::with('tags', 'category')->latest()->paginate(8);
 
 		return view('home.articles.index',compact('articles'));
 	}
