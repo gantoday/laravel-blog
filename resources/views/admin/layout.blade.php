@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>{{ $title or $settings['site_name'].'-管理面板' }}</title>
+	<title>{{ $title or setting('site_name').'-管理面板' }}</title>
 
 	@include('admin.partials.header')
 	@yield('header')

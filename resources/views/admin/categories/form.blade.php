@@ -9,7 +9,7 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('parent', 'Parent:') !!}
+	{!! Form::label('parent_id', 'Parent:') !!}
 	{!! Form::select('parent_id', $categories, null, ['id' => 'parent_id', 'class' => 'form-control']) !!}
 </div>
 

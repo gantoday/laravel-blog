@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="@yield('description', $settings['site_description'])">
+	<meta name="description" content="@yield('description', setting('site_description'))">
 	<meta name="author" content="ganto">
 
-	<title>@yield('title', $settings['site_name'])</title>
+	<title>@yield('title', setting('site_name'))</title>
 	
 	@include('home.partials.header')
 
@@ -20,8 +20,8 @@
 	<div class="container">
 
 		<div class="blog-header">
-			<h1 class="blog-title">{{ $settings['site_name'] }}</h1>
-			<p class="lead blog-description">{{ $settings['site_description'] }}</p>
+			<h1 class="blog-title">{{ setting('site_name') }}</h1>
+			<p class="lead blog-description">{{ setting('site_description') }}</p>
 		</div>
 
 		<div class="row">

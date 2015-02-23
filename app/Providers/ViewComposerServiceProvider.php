@@ -12,7 +12,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->composeSidebar();
-		$this->composeSettings();
+		//$this->composeSettings();
 	}
 
 	/**
@@ -35,12 +35,12 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		});
 	}
 
-	private function composeSettings()
+	/*private function composeSettings()
 	{
 		view()->composer('*',function($view){
 			$settings=\App\Setting::getSettingsArr();
 			$view->with(compact('settings'));
 
 		});
-	}
+	}*/
 }

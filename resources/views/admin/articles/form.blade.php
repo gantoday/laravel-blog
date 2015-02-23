@@ -14,7 +14,7 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('category', 'Category:') !!}
+	{!! Form::label('category_id', 'Category:') !!}
 	<select class="form-control" name="category_id" id="category_id">
 		@foreach ($categories['top'] as $top_category)
 			<option value="{{ $top_category->id }}">{{ $top_category->name }}</option>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('tags', 'Tags:') !!}
+	{!! Form::label('tag_list', 'Tags:') !!}
 	{!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
 </div>
 

@@ -7,7 +7,7 @@ function setting($name)
 
 function cdn($path)
 {
-    $cdnDomain = 'http://source.90door.com';
+    $cdnDomain = setting($cdn_domain);
     $cdnDomain = '';
 
     return $cdnDomain.$path;
