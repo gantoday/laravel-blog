@@ -27,9 +27,7 @@ class TagsController extends Controller {
 	 */
 	public function create()
 	{
-		$tags = \App\Tag::lists('name', 'id');
-
-		return view('admin.tags.create', compact('tags'));
+		return view('admin.tags.create');
 	}
 
 	/**

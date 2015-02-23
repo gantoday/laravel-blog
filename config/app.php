@@ -135,8 +135,8 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-
 		'Illuminate\Html\HtmlServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -200,6 +200,7 @@ return [
 		'HTML'  => 'Illuminate\Html\HtmlFacade',
 
 		'Flash' => 'Laracasts\Flash\Flash',
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 

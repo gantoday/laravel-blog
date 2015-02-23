@@ -21,7 +21,7 @@ class ArticlesController extends Controller {
 	 */
 	public function index()
 	{
-		$articles = Article::latest()->paginate(15);
+		$articles = Article::with('tags', 'category')->latest()->paginate(15);
 		
 		return view('admin.articles.index',compact('articles'));
 	}
@@ -116,7 +116,7 @@ class ArticlesController extends Controller {
 
 	public function trash()
 	{
-		$articles = Article::onlyTrashed()->latest('deleted_at')->paginate(15);
+		$articles = Article::with('tags', 'category')->onlyTrashed()->latest('deleted_at')->paginate(15);
 		
 		return view('admin.articles.trash', compact('articles'));
 	}
