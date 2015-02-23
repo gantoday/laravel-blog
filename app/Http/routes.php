@@ -33,6 +33,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'], 
 
     Route::get('setting/index','SettingsController@index');
     Route::patch('setting/index','SettingsController@index');
+    
+    Route::post('uploadImage', 'ArticlesController@uploadImage');
 });
 
 
@@ -60,8 +62,8 @@ Route::get('foo',function(){
 
 Route::get('bar',function(){
 
-    $id=\App\Tag::create(['name'=>'tag6'])->id;
-    return $id;
+    $aa='aaa';
+    return $aa ?: bbb;
 
 });
 
@@ -82,6 +84,5 @@ Route::group(['namespace' => 'Home'], function()
 
     Route::get('articles', 'ArticlesController@index');
     Route::get('{slug}', 'ArticlesController@show');
-    Route::post('uploadImage', 'ArticlesController@uploadImage');
 });
 

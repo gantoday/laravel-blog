@@ -57,7 +57,8 @@
 		$('#category_id').select2();
 		$(function() {
 			$('textarea').inlineattachment({
-				uploadUrl: '/upload.php'
+				uploadUrl: '/admin/uploadImage',
+				extraParams:{"_token":"{{ csrf_token() }}"}
 			});
 		});
 	</script>

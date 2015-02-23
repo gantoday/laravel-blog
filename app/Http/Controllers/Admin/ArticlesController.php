@@ -155,4 +155,29 @@ class ArticlesController extends Controller {
 		$this->syncTags($article, $request->input('tag_list'));
 	}
 
+	public function uploadImage()
+	{
+		if ($file = Input::file('file'))
+		{
+			$allowed_extensions = ["png", "jpg", "gif"];
+			if ( $file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions) ){
+				return ['error' => 'You may only upload png, jpg or gif.'];
+			}
+
+			$fileName        = $file->getClientOriginalName();
+			$extension       = $file->getClientOriginalExtension() ?: 'png';
+			$folderName      = '/uploads/images/'.date('Y', time()).'/';
+			$destinationPath = public_path().$folderName;
+			$safeName        = uniqid().'.'.$extension;
+			$file->move($destinationPath, $safeName);
+
+			$filePath = $folderName.$safeName;
+			$cdnPath = cdn($filePath);
+		
+			return ['filename'  => $cdnPath];
+		} else {
+			return ['error' => 'Error while uploading file'];
+		}
+	}
+
 }
