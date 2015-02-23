@@ -2,8 +2,7 @@
 
 function setting($name)
 {
-    $settings=\App\Setting::getSettingsArr();
-    return $settings[$name];
+    return \App\Setting::getSettingValue($name);
 }
 
 function cdn($path)
