@@ -1,6 +1,6 @@
 @extends('home.layout')
 
-@section('title'){{ $settings['site_name'].' | '.$settings['site_description'] }}@stop
+@section('title'){{ setting('site_name').' | '.setting('site_description') }}@stop
 
 @section('content')
 <div class="col-sm-8 blog-main">

@@ -17,6 +17,8 @@ class CreateSettingsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('value')->nullable();
+			$table->string('description')->nullable();
+			$table->string('type')->nullable();  //text textarea checkbox
 			$table->timestamps();
 		});
 	}
