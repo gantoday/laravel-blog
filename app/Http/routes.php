@@ -72,7 +72,7 @@ Route::get('bar',function(){
 Route::group(['namespace' => 'Home'], function()
 {
 
-    Route::resource('/','ArticlesController@index');
+    Route::resource('/','HomeController@index');
 
     Route::get('tags', 'TagsController@index');
     Route::get('tags/{slug}', 'TagsController@show');

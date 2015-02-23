@@ -1,5 +1,9 @@
 @extends('home.layout')
 
+@section('title'){{ $article->title.' | '.$settings['site_name'] }}@stop
+
+@section('description'){{ $settings['site_name'].' | '.strip_tags(str_limit($article->body_html, $limit = 250, $end = '...')) }}@stop
+
 @section('content')
 <div class="col-sm-8 blog-main">
 	<div class="blog-post">

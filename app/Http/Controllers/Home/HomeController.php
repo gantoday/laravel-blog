@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Home;
+
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
 
@@ -14,23 +16,15 @@ class HomeController extends Controller {
 	*/
 
 	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-
-	/**
 	 * Show the application dashboard to the user.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return view('home');
+		$articles = \App\Article::with('tags', 'category')->latest()->take(8)->get();
+
+		return view('home.index',compact('articles'));
 	}
 
 }

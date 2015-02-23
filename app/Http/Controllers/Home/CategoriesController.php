@@ -27,12 +27,14 @@ class CategoriesController extends Controller {
 	{
 		//$articles = Category::findBySlug($slug)->articles()->latest()->paginate(8);
 		
+		$category = Category::findBySlug($slug);
+
 		$articles = \App\Article::with('tags', 'category')->whereHas('category', function($query) use($slug)
 		{
 			$query->whereSlug($slug);
 		})->latest()->paginate(8);
 		
-		return view('home.categories.show',compact('articles'));
+		return view('home.categories.show',compact('articles', 'category'));
 	}
 
 

@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="{{ $settings['site_description'] }}">
-	<meta name="author" content="">
+	<meta name="description" content="@yield('description', $settings['site_description'])">
+	<meta name="author" content="ganto">
 
-	<title>{{ $settings['site_name'] }}</title>
+	<title>@yield('title', $settings['site_name'])</title>
 	
 	@include('home.partials.header')
 
@@ -35,7 +35,7 @@
 	</div><!-- /.container -->
 
 	<footer class="blog-footer">
-		<p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+		<p> <a href="http://www.90door.com">DaShuai's Blog</a> Based On Laravel5 and Bootstrap3.</p>
 		<p>
 			<a href="#">Back to top</a>
 		</p>

@@ -1,17 +1,25 @@
 @extends('home.layout')
 
-@section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+@section('title'){{ $settings['site_name'].' | '.$settings['site_description'] }}@stop
 
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@endsection
+@section('content')
+<div class="col-sm-8 blog-main">
+	@foreach($articles as $article)
+		<div class="blog-post">
+			<h2 class="blog-post-title"><a href="/{{ $article->slug }}">{{ $article->title }}</a></h2>
+			<p class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged 
+			@foreach($article->tags as $key => $tag)
+				<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
+				@if($key < count($article->tags)-1), @endif
+			@endforeach 
+			about {{ $article->timeDiffForHumans }}.</p>
+			{!! str_limit($article->body_html, $limit = 500, $end = '...') !!}
+		</div><!-- /.blog-post -->
+		<hr>
+	@endforeach
+
+	
+	<a class="btn btn-primary pull-right" href="/articles/?page=2">More Articles</a>
+
+</div><!-- /.blog-main -->
+@stop

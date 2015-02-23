@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>SB Admin 2 - Bootstrap Admin Theme</title>
+	<title>{{ $title or $settings['site_name'].'-管理面板' }}</title>
 
 	@include('admin.partials.header')
 	@yield('header')

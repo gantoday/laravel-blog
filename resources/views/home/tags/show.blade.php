@@ -1,5 +1,7 @@
 @extends('home.layout')
 
+@section('title'){{ $tag->name.'标签 博文列表 第'.$articles->currentPage().'页 | '.$settings['site_name'] }}@stop
+
 @section('content')
 <div class="col-sm-8 blog-main">
 	@foreach($articles as $article)
