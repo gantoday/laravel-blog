@@ -5,7 +5,7 @@
 
 <div class="form-group">
 	{!! Form::label('body', 'Body:') !!}
-	{!! Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '20']) !!}
+	{!! Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '22']) !!}
 </div>
 
 <div class="form-group">
@@ -43,13 +43,28 @@
 
 @section('header')
 	<link rel="stylesheet" href="/assets/admin/css/select2.min.css">
+	<link rel="stylesheet" href="/assets/admin/css/codemirror.css">
 @endsection
 
 @section('footer')
+	<!-- CodeMirror -->
+	<script src="/assets/admin/js/codemirror.js"></script>
+	<script src="/assets/admin/js/markdown.js"></script>
+	<script src="/assets/admin/js/continuelist.js"></script>
+
+	<!-- inline-attachment -->
 	<script src="/assets/admin/js/inline-attachment.js"></script>
 	<script src="/assets/admin/js/jquery.inline-attachment.js"></script>
+
+	<!-- select2 -->
 	<script src="/assets/admin/js/select2.min.js"></script>
 	<script>
+		var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+			mode: 'markdown',
+			lineNumbers: true,
+			theme: "default",
+			extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+		});
 		$('#tag_list').select2({
 			placeholder: 'Choose a tag',
 			tags: true

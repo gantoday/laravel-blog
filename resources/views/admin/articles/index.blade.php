@@ -47,15 +47,11 @@
 			</table>
 		</div>
 		<div class="row">
-			<div class="col-sm-6">
-				<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">
-					每页{{ $articles->count() }}条,共{{ $articles->lastPage() }}页,总{{ $articles->total() }}条.
-				</div>
+			<div class="col-sm-9 pull-left">
+				每页{{ $articles->count() }}条,共{{ $articles->lastPage() }}页,总{{ $articles->total() }}条.
 			</div>
-			<div class="col-sm-6">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-					{!! $articles->render() !!}
-				</div>
+			<div class="col-sm-3 page">
+				{!! $articles->render() !!}
 			</div>
 		</div>
 	</div>

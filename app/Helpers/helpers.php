@@ -7,8 +7,17 @@ function setting($name)
 
 function cdn($path)
 {
-    $cdnDomain = setting($cdn_domain);
+    $cdnDomain = setting('cdn_domain');
     $cdnDomain = '';
 
     return $cdnDomain.$path;
+}
+
+function description_trim($description, $limit = 500, $end = '...')
+{
+    $description = strip_tags(str_limit($description, $limit, $end));
+    $description = str_replace("  ","",$description);
+    $description = str_replace("\n","",$description);
+
+    return $description;
 }

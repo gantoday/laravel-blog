@@ -12,22 +12,20 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    
-    mix.sass('app.scss', 'resources/assets/css');
-    
-    mix.styles([
-    	'libs/bootstrap.min.css',
-    	'libs/select2.min.css',
-    	'app.css',
-        'auth.css'
-    ],'public/assets/home/all.css', 'resources/assets/css');
+	
+	//mix.sass('app.scss', 'resources/assets/css');
+	
+	mix.styles([
+		'bootstrap.min.css',
+		'home.css',
+		'highlight-default.css'
+	]);
 
-    mix.scripts([
-    	'libs/jquery.min.js',
-    	'libs/bootstrap.min.js',
-    	'libs/select2.min.js',
-        'libs/inline-attachment.js',
-        'libs/jquery.inline-attachment.js',
-    ],'public/assets/home/all.js', 'resources/assets/js')
+	mix.scripts([
+		'jquery.min.js',
+		'bootstrap.min.js',
+		'highlight.js'
+	])
 
+	mix.version(['css/all.css', 'js/all.js']);
 });

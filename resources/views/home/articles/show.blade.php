@@ -2,7 +2,7 @@
 
 @section('title'){{ $article->title.' | '.setting('site_name') }}@stop
 
-@section('description'){{ setting('site_name').' | '.strip_tags(str_limit($article->body_html, $limit = 250, $end = '...')) }}@stop
+@section('description'){{ setting('site_name').' | '.description_trim($article->body_html) }}@stop
 
 @section('content')
 <div class="col-sm-8 blog-main">
@@ -15,7 +15,7 @@
 		@endforeach
 		about {{ $article->timeDiffForHumans }}.</p>
 		{!! $article->body_html !!}
-		@unless(is_null($article->original))
+		@unless(is_null($article->original) || empty($article->original))
 			<p>参考来源:<br>{{ $article->original }}</p>
 		@endunless
 		<p>本文链接:<br>{{ setting('site_url').$article->slug }}</p>

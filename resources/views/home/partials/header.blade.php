@@ -1,4 +1,3 @@
-<!-- Bootstrap core CSS -->
 <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
