@@ -14,13 +14,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
 
-		\App\User::create([
-			'username' => 'ganto',
-			'email' => 'ganto@qq.com',
-			'password' => Hash::make('123456')
-		]);
 
 		\App\Tag::create([
 			'name' => 'tag1'
@@ -107,7 +102,7 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		$this->call('ArticlesTableSeeder');
-
+		$this->call('SettingsTableSeeder');
 	}
 
 }
