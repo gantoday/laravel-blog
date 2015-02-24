@@ -1,11 +1,8 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
-use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller {
 
@@ -157,7 +154,7 @@ class ArticlesController extends Controller {
 
 	public function uploadImage()
 	{
-		if ($file = Input::file('file'))
+		if ($file = \Request::file('file'))
 		{
 			$allowed_extensions = ["png", "jpg", "gif"];
 			if ( $file->getClientOriginalExtension() && !in_array($file->getClientOriginalExtension(), $allowed_extensions) ){

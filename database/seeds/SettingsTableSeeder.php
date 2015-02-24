@@ -35,6 +35,13 @@ class SettingsTableSeeder extends Seeder {
 		]);
 
 		Setting::create([
+			'name' => 'cdn_on',
+			'value' => '1',
+			'description' => '七牛cdn加速开关',
+			'type' => 'radio'
+		]);
+
+		Setting::create([
 			'name' => 'pagination',
 			'value' => '8',
 			'description' => '博文列表每页显示博文数量',

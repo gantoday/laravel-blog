@@ -42,22 +42,22 @@
 </div>
 
 @section('header')
-	<link rel="stylesheet" href="/assets/admin/css/select2.min.css">
-	<link rel="stylesheet" href="/assets/admin/css/codemirror.css">
+	<link rel="stylesheet" href="/admin-assets/css/select2.min.css">
+	<link rel="stylesheet" href="/admin-assets/css/codemirror.css">
 @endsection
 
 @section('footer')
 	<!-- CodeMirror -->
-	<script src="/assets/admin/js/codemirror.js"></script>
-	<script src="/assets/admin/js/markdown.js"></script>
-	<script src="/assets/admin/js/continuelist.js"></script>
+	<script src="/admin-assets/js/codemirror.js"></script>
+	<script src="/admin-assets/js/markdown.js"></script>
+	<script src="/admin-assets/js/continuelist.js"></script>
 
 	<!-- inline-attachment -->
-	<script src="/assets/admin/js/inline-attachment.js"></script>
-	<script src="/assets/admin/js/jquery.inline-attachment.js"></script>
+	<script src="/admin-assets/js/inline-attachment.js"></script>
+	<script src="/admin-assets/js/jquery.inline-attachment.js"></script>
 
 	<!-- select2 -->
-	<script src="/assets/admin/js/select2.min.js"></script>
+	<script src="/admin-assets/js/select2.min.js"></script>
 	<script>
 		var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
 			mode: 'markdown',
