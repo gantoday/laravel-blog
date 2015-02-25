@@ -55,7 +55,13 @@
 				<!-- /.nav-second-level -->
 			</li>
 			<li>
-				<a href="/admin/setting/index"><i class="fa fa-cog fa-fw"></i> Setting</a>
+				<a href="#"><i class="fa fa-cog fa-fw"></i> Settings<span class="fa arrow"></span></a>
+				<ul class="nav nav-second-level">
+					<li>
+						<a href="/admin/settings/index">All Settings</a>
+					</li>
+				</ul>
+				<!-- /.nav-second-level -->
 			</li>
 		</ul>
 	</div>

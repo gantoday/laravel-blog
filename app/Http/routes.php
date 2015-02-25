@@ -31,8 +31,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'], 
     Route::get('tags/index','TagsController@index');
     Route::resource('tags','TagsController');
 
-    Route::get('setting/index','SettingsController@index');
-    Route::patch('setting/index','SettingsController@index');
+    Route::get('settings/index','SettingsController@index');
+    Route::patch('settings/index','SettingsController@update');
     
     Route::post('uploadImage', 'ArticlesController@uploadImage');
 });

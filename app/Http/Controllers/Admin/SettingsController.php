@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Setting;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingRequest;
 
 class SettingsController extends Controller {
@@ -13,7 +13,9 @@ class SettingsController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$settings = Setting::all();
+		
+		return view('admin.settings.index',compact('settings'));
 	}
 
 	/**
@@ -31,10 +33,26 @@ class SettingsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function update(SettingRequest $request)
 	{
-		//
+		foreach ($request->all() as $name => $value) 
+		{
+			if($name != '_method' && $name != '_token')
+			{
+				$setting=Setting::whereName($name)->first();
+
+				$setting->update([
+						'value'=>$value
+					]);
+			}
+		}
+
+		//更新设置缓存
+		\Cache::forget('settings_array');
+
+		return redirect('admin/settings/index');
 	}
+
 
 	/**
 	 * Display the specified resource.
@@ -64,7 +82,7 @@ class SettingsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function store($id)
 	{
 		//
 	}

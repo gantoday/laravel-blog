@@ -5,15 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model {
 
 	//public $timestamps= false;
-
-	public function scopeGetValue($query, $name)
-	{
-		return $query->whereName($name)->firstOrFail();
-	}
+	protected $fillable = ['name', 'value', 'description', 'type'];
 
 	public static function getSettingsArr()
 	{
-		return \Cache::remember('settings_array',1 , function()
+		return \Cache::rememberForever('settings_array', function()
 		{
 			/*$aa=\App\Setting::all();
 			$settings=array();
