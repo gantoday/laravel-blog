@@ -2,16 +2,16 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Carbon\Carbon;
 class Article extends Model {
 
 	use SoftDeletes;
 
 	protected $dates = ['deleted_at'];
 
-	protected $appends = ['tag_list', 'body_html', 'timeDiffForHumans'];
+	protected $appends = ['tag_list', 'body_html'];
 
-	protected $fillable = ['title', 'body', 'slug', 'click', 'user_id', 'category_id', 'original'];
+	protected $fillable = ['title', 'body', 'slug', 'click', 'user_id', 'category_id', 'original', 'created_at'];
 
 	public function user()
 	{
@@ -40,9 +40,9 @@ class Article extends Model {
 		return $Parsedown->text($this->body);
 	}
 
-	public function getTimeDiffForHumansAttribute()
+	public function setCreatedAtAttribute($date)
 	{
-		return $this->created_at->diffForHumans();
+		$this->attributes['created_at']=Carbon::createFromFormat('Y-m-d', $date);
 	}
 
 	public function setSlugAttribute($data)

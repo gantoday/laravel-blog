@@ -13,7 +13,7 @@
 			<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
 			@if($key < count($article->tags)-1), @endif
 		@endforeach
-		about {{ $article->timeDiffForHumans }}.</p>
+		about {{ $article->created_at->diffForHumans() }}.</p>
 		{!! $article->body_html !!}
 		@unless(is_null($article->original) || empty($article->original))
 			<p>参考来源:<br>{{ $article->original }}</p>
