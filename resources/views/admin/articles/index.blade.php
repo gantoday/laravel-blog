@@ -27,7 +27,7 @@
 				@foreach($articles as $article)
 					<tr>
 						<td>{{ $article->id }}</td>
-						<td>{{ $article->title }}</td>
+						<td><a href="/{{ $article->slug }}" target="_blank">{{ $article->title }}</a></td>
 						<td>{{ $article->category->name }}</td>
 						<td>@foreach($article->tags as $tag){{ $tag->name }} @endforeach  </td>
 						<td>{{ $article->click }}</td>

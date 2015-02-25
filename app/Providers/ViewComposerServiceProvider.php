@@ -28,10 +28,13 @@ class ViewComposerServiceProvider extends ServiceProvider {
 	private function composeSidebar()
 	{
 		view()->composer('home.partials.sidebar',function($view){
+
 			$allTags=\App\Tag::all();
+			$allCategories=\App\Category::getSortedCategories();
 			$NewestArticles=\App\Article::latest()->take(15)->get();
 			$hottestArticles=\App\Article::orderBy('click')->take(15)->get();
-			$view->with(compact('allTags','NewestArticles','hottestArticles'));
+
+			$view->with(compact('allTags', 'allCategories', 'NewestArticles','hottestArticles'));
 		});
 	}
 

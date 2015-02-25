@@ -1,9 +1,14 @@
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 	<div class="sidebar-module sidebar-module-inset">
-		<h4>Tags</h4>
+		<h4>Categories</h4>
 		<ol class="list-unstyled">
-			@foreach($allTags as $tag)
-				<li><a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a></li> 
+			@foreach($allCategories as $category)
+				<li>
+					@if($category->parent_id > 0)
+						--
+					@endif
+					<a href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
+				</li> 
 			@endforeach 
 		</ol>
 	</div>
