@@ -17,8 +17,8 @@ elixir(function(mix) {
 	
 	mix.styles([
 		'bootstrap.min.css',
-		'home.css',
-		'highlight-default.css'
+		'highlight-default.css',
+		'home.css'
 	]);
 
 	mix.scripts([
