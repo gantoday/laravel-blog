@@ -13,7 +13,14 @@ class Tag extends Model {
 
 	public function setSlugAttribute($data)
 	{
-		$this->attributes['slug']=str_slug($data);
+		if(str_slug($data) != '')
+		{
+			$this->attributes['slug']=str_slug($data);
+		}
+		else
+		{
+			$this->attributes['slug']=$data;
+		}
 	}
 
 	public function scopeFindBySlug($query, $slug)
