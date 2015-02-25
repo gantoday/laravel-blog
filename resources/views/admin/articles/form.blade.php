@@ -49,7 +49,7 @@
 @section('header')
 	<link rel="stylesheet" href="/admin-assets/css/select2.min.css">
 	<link rel="stylesheet" href="/admin-assets/css/codemirror.css">
-@endsection
+@stop
 
 @section('footer')
 	<!-- CodeMirror -->
@@ -82,4 +82,4 @@
 			});
 		});
 	</script>
-@endsection
+@stop

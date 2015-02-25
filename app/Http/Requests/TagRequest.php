@@ -23,7 +23,7 @@ class TagRequest extends Request {
 	{
 		return [
 			'name'=>'required|min:3',
-			'slug'=>'required',
+			'slug'=>'required|unique:tags,slug,'.$this->segment(3),
 		];
 	}
 

@@ -18,11 +18,11 @@
 </div>
 
 @section('header')
-	<link rel="stylesheet" href="/assets/admin/css/select2.min.css">
+	<link rel="stylesheet" href="/admin-assets/css/select2.min.css">
 @endsection
 
 @section('footer')
-	<script src="/assets/admin/js/select2.min.js"></script>
+	<script src="/admin-assets/js/select2.min.js"></script>
 	<script>
 		$('#parent_id').select2();
 	</script>

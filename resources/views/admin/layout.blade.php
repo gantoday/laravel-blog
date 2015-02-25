@@ -35,6 +35,11 @@
 			
 			@yield('content')
 
+			<div class="row">
+				<div class="col-lg-8">
+					@include('errors.list')
+				</div>
+			</div>
 		</div>
 		<!-- /#page-wrapper -->
 
