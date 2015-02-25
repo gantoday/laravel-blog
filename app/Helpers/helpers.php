@@ -10,13 +10,13 @@ function cdn($path)
 	if (setting('cdn_on')) 
 	{
 		$cdnDomain = setting('cdn_domain');
+
+		return $cdnDomain.$path;
 	}
 	else
 	{
-		$cdnDomain = '';
+		return $path;
 	}
-
-	return $cdnDomain.$path;
 }
 
 function description_trim($description, $limit = 500, $end = '...')
