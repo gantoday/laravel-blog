@@ -62,8 +62,7 @@ Route::get('foo',function(){
 
 Route::get('bar',function(){
 
-    $aa='aaa';
-    return $aa ?: bbb;
+    return view('aaa');
 
 });
 

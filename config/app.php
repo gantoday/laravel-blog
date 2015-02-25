@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
+
 		'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
@@ -147,7 +148,9 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ViewComposerServiceProvider',
+
 		'Laracasts\Flash\FlashServiceProvider',
+		'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
 
 	],
 
@@ -201,6 +204,7 @@ return [
 
 		'Flash' => 'Laracasts\Flash\Flash',
 		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+		'HTMLMin' => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
 
 	],
 
