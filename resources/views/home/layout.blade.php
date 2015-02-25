@@ -9,7 +9,13 @@
 
 	<title>@yield('title', setting('site_name'))</title>
 	
-	@include('home.partials.header')
+	<link rel="stylesheet" href="{{ cdn(elixir("css/all.css")) }}">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
 
 </head>
 
@@ -41,7 +47,16 @@
 		</p>
 	</footer>
 
-	@include('home.partials.footer')
+	<script src="{{ cdn(elixir("js/all.js")) }}"></script>
+
+	<script>
+		$('.blog-post img').addClass('carousel-inner img-responsive img-rounded');
+		$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});
+	</script>
 
 </body>
 </html>

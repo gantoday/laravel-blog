@@ -36,9 +36,9 @@ class SettingsTableSeeder extends Seeder {
 
 		Setting::create([
 			'name' => 'cdn_on',
-			'value' => '1',
-			'description' => '七牛cdn加速开关',
-			'type' => 'radio'
+			'value' => 'false',
+			'description' => '七牛cdn加速开关,true or false',
+			'type' => 'text'
 		]);
 
 		Setting::create([
