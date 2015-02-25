@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eeeba540cbfb377673f78ad60a28d4c9",
+    "hash": "a196f73d08d0c3635ad5b8956778b3f5",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2464,11 +2464,11 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.4.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "reference": "2495d3361ac1e9fc15608a1b33ec2dd41c56b2dc",
                 "mirrors": [
                     {
                         "url": "/%package%/%normalizedUrl%.%type%",
@@ -2478,8 +2478,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/010c7efedd88bf31141a02719f51fb44c732d5a0",
-                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2495d3361ac1e9fc15608a1b33ec2dd41c56b2dc",
+                "reference": "2495d3361ac1e9fc15608a1b33ec2dd41c56b2dc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2495,14 +2495,18 @@
                 "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
+            "suggest": {
+                "ext-intl": "*"
+            },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
             },
             "autoload": {
-                "psr-0": {
-                    "Faker": "src/",
-                    "Faker\\PHPUnit": "test/"
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2520,7 +2524,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-06-04 14:43:02"
+            "time": "2015-02-23 10:49:44"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3761,7 +3765,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "nickcernis/html-to-markdown": 20
+        "nickcernis/html-to-markdown": 20,
+        "fzaninotto/faker": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

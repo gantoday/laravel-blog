@@ -40,11 +40,11 @@ class Article extends Model {
 		return $Parsedown->text($this->body);
 	}
 
-	public function setCreatedAtAttribute($date)
+/*	public function setCreatedAtAttribute($date)
 	{
 		$this->attributes['created_at']=Carbon::createFromFormat('Y-m-d', $date);
 	}
-
+*/
 	public function setSlugAttribute($data)
 	{
 		$this->attributes['slug']=str_slug($data);

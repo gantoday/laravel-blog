@@ -7,7 +7,7 @@ function setting($name)
 
 function cdn($path)
 {
-	if (setting('cdn_on')=='true')
+	if (setting('cdn_on')=='1')
 	{
 		return setting('cdn_domain').$path;
 	}
