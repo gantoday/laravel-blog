@@ -12,9 +12,9 @@ class ArticlesController extends Controller {
 	 */
 	public function index()
 	{
-		$pagination = setting('pagination');
+		$page_size = setting('page_size');
 
-		$articles = Article::with('tags', 'category')->latest()->paginate($pagination);
+		$articles = Article::with('tags', 'category')->latest()->paginate($page_size);
 
 		return view('home.articles.index',compact('articles'));
 	}

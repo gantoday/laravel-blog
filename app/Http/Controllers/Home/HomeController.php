@@ -22,9 +22,9 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$pagination = setting('pagination');
+		$page_size = setting('page_size');
 		
-		$articles = \App\Article::with('tags', 'category')->latest()->take($pagination)->get();
+		$articles = \App\Article::with('tags', 'category')->latest()->take($page_size)->get();
 
 		return view('home.index',compact('articles'));
 	}

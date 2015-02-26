@@ -65,7 +65,7 @@ class SettingsTableSeeder extends Seeder {
 		]);
 
 		Setting::create([
-			'name' => 'pagination',
+			'name' => 'page_size',
 			'value' => '8',
 			'description' => '博文列表每页显示博文数量',
 			'type' => 'text'
