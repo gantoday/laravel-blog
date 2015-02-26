@@ -11,12 +11,12 @@
 		"erusev/parsedown": "~1.5",
 		"nickcernis/html-to-markdown": "dev-master",
 		"barryvdh/laravel-debugbar": "~2.0",
-		"graham-campbell/htmlmin": "~3.0"
+		"graham-campbell/htmlmin": "~3.0",
+		"fzaninotto/faker": "1.5.*@dev"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
-		"phpspec/phpspec": "~2.1",
-		"fzaninotto/faker": "1.5.*@dev"
+		"phpspec/phpspec": "~2.1"
 	},
 	"autoload": {
 		"classmap": [
@@ -26,8 +26,8 @@
 			"App\\": "app/"
 		},
 		"files": [
-            "app/Helpers/helpers.php"
-        ]
+			"app/Helpers/helpers.php"
+		]
 	},
 	"autoload-dev": {
 		"classmap": [
