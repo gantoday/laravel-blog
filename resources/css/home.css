@@ -148,6 +148,10 @@ h6, .h6 {
   margin-bottom: 20px;
   color: #999;
 }
+.blog-post-meta a {
+  color: #696565;
+  text-decoration: underline;
+}
 
 
 /*
