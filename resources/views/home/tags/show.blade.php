@@ -10,7 +10,6 @@
 			<p class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged 
 			@foreach($article->tags as $key => $tag)
 				<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
-				@if($key < count($article->tags)-1), @endif
 			@endforeach 
 			about {{ $article->timeDiffForHumans }}.</p>
 			{!! str_limit($article->body_html, $limit = 500, $end = '...') !!}
