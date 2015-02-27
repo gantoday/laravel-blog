@@ -151,6 +151,7 @@ return [
 
 		'Laracasts\Flash\FlashServiceProvider',
 		'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
+		'Roumen\Sitemap\SitemapServiceProvider',
 
 	],
 

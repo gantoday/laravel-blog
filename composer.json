@@ -12,7 +12,8 @@
 		"nickcernis/html-to-markdown": "dev-master",
 		"barryvdh/laravel-debugbar": "~2.0",
 		"graham-campbell/htmlmin": "~3.0",
-		"fzaninotto/faker": "~1.4"
+		"fzaninotto/faker": "~1.4",
+		"roumen/sitemap": "~2.5"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
