@@ -26,7 +26,7 @@ class ArticleRequest extends Request {
 			'body'=>'required',
 			'category_id'=>'required|exists:categories,id',
 			'tag_list'=>'required',
-			'slug'=>'required',
+			'slug'=>'required|unique:articles,slug,'.$this->segment(3),
 			'original'=>'url'
 		];
 	}
