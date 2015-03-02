@@ -42,6 +42,8 @@ class CategoriesController extends Controller {
 		Category::create($request->all());
 
 		flash()->success('Your category has been created!');
+		
+		\Cache::tags('categories')->flush();
 
 		return redirect('admin/categories/index');
 	}
@@ -87,6 +89,8 @@ class CategoriesController extends Controller {
 		$category = Category::findOrFail($id);
 
 		$category->update($request->all());
+
+		\Cache::tags('categories')->flush();
 
 		return redirect('admin/categories/index');
 	}
