@@ -1,4 +1,6 @@
-# Installation
+# laravel-blog
+
+## Installation
 
 git clone https://github.com/gantoo/laravel-blog.git projectname
 cd projectname
