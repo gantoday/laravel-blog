@@ -8,11 +8,11 @@
 <div class="col-sm-8 blog-main">
 	<div class="blog-post">
 		<h2 class="blog-post-title">{{ $article->title }}</h2>
-		<p class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged 
+		<div class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged 
 		@foreach($article->tags as $key => $tag)
 			<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
 		@endforeach
-		about {{ $article->created_at->diffForHumans() }}.</p>
+		about {{ $article->created_at->diffForHumans() }}.</div>
 		{!! $article->body_html !!}
 		@unless(is_null($article->original) || empty($article->original))
 			<p>参考来源:<br>{{ $article->original }}</p>
