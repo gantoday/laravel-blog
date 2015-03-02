@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-lg-8">
 				{!! Form::open(['url' => 'admin/articles']) !!}
-					@include('admin.articles.form',['submitButtonText'=>'Add Article'])
+					@include('admin.articles.form',['submitButtonText'=>'Add Article', 'form_date'=>date('Y-m-d')])
 				{!! Form::close() !!}
 			</div>
 			<!-- /.col-lg-6 (nested) -->

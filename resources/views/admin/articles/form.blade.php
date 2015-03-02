@@ -34,7 +34,7 @@
 
 <div class="form-group">
 	{!! Form::label('created_at', 'Time:') !!}
-	{!! Form::input('date', 'created_at', date('Y-m-d'), ['class' => 'form-control']) !!}
+	{!! Form::input('date', 'created_at', $form_date, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

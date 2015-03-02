@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-lg-8">
 				{!! Form::model($article,['method'=>'PATCH','url' => 'admin/articles/'.$article->id]) !!}
-					@include('admin.articles.form',['submitButtonText'=>'Update Article'])
+					@include('admin.articles.form',['submitButtonText'=>'Update Article', 'form_date'=>$article->created_at->format('Y-m-d')])
 				{!! Form::close() !!}
 			</div>
 			<!-- /.col-lg-6 (nested) -->
