@@ -5,7 +5,7 @@
 
 <div class="form-group">
 	{!! Form::label('body', 'Body:') !!}
-	{!! Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '22']) !!}
+	{!! Form::textarea('body', null, ['id' => 'editor', 'wrap' => 'virtual', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '22']) !!}
 </div>
 
 <div class="form-group">
