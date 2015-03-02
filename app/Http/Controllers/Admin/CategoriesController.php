@@ -27,7 +27,7 @@ class CategoriesController extends Controller {
 	{
 		$categories = \App\Category::getTopLevel()->lists('name', 'id');
 
-		$categories =['' => '/'] + $categories;
+		$categories =['0' => '/'] + $categories;
 
 		return view('admin.categories.create', compact('categories'));
 	}
