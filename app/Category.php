@@ -27,9 +27,7 @@ class Category extends Model {
 
 	public static function getLeveledCategories()
 	{
-		$expire =  setting('expire');
-
-		return \Cache::tags('categories')->remember('leveled_categories', $expire, function()
+		return \Cache::tags('categories')->rememberForever('leveled_categories', function()
 		{
 			$categories = Category::all();
 			$result = array();
@@ -49,9 +47,7 @@ class Category extends Model {
 
 	public static function getSortedCategories()
 	{
-		$expire =  setting('expire');
-		
-		return \Cache::tags('categories')->remember('sorted_categories', $expire, function()
+		return \Cache::tags('categories')->rememberForever('sorted_categories', function()
 		{
 			$categories = Category::all();
 			$result = array();
