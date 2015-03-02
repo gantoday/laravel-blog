@@ -41,10 +41,11 @@
 	</div><!-- /.container -->
 
 	<footer class="blog-footer">
-		<p> <a href="http://www.90door.com">DaShuai's Blog</a> Based On Laravel5 and Bootstrap3.</p>
-		<p>
-			<a href="#">Back to top</a>
-		</p>
+		<p><a href="http://www.90door.com/">DaShuai's Blog</a> Based On Laravel5 and Bootstrap3.</p>
+		@if(setting('bei_an') != '')
+			<p>{!! setting('bei_an').' '.setting('tong_ji') !!}</p>
+		@endif
+		<p><a href="#">Back to top</a></p>
 	</footer>
 
 	<script src="{{ cdn(elixir("js/all.js")) }}"></script>

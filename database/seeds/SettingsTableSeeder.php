@@ -51,6 +51,13 @@ class SettingsTableSeeder extends Seeder {
 		]);
 
 		Setting::create([
+			'name' => 'tong_ji',
+			'value' => '<script src="http://s6.cnzz.com/stat.php?id=3236483&web_id=3236483" language="JavaScript"></script>',
+			'description' => '站点统计代码',
+			'type' => 'text'
+		]);
+
+		Setting::create([
 			'name' => 'cdn_domain',
 			'value' => 'http://source.90door.com',
 			'description' => '七牛cdn加速域名',
