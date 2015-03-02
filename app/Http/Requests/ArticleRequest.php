@@ -22,7 +22,7 @@ class ArticleRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title'=>'required|min:3',
+			'title'=>'required|min:2',
 			'body'=>'required',
 			'category_id'=>'required|exists:categories,id',
 			'tag_list'=>'required',

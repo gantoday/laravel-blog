@@ -22,7 +22,7 @@ class CategoryRequest extends Request {
 	public function rules()
 	{
 		return [
-			'name'=>'required|min:3',
+			'name'=>'required|min:2',
 			'slug'=>'required|unique:categories,slug,'.$this->segment(3),
 		];
 	}
