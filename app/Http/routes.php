@@ -17,24 +17,29 @@
  */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'], function()
 {
-    Route::get('index','AdminController@index');
+	Route::get('index','AdminController@index');
 
-    Route::get('articles/index','ArticlesController@index');
-    Route::get('articles/trash','ArticlesController@trash');
-    Route::post('articles/restore/{id}','ArticlesController@restore');
-    Route::delete('articles/forceDelete/{id}','ArticlesController@forceDelete');
-    Route::resource('articles','ArticlesController');
+	Route::get('articles/index','ArticlesController@index');
+	Route::get('articles/trash','ArticlesController@trash');
+	Route::post('articles/restore/{id}','ArticlesController@restore');
+	Route::delete('articles/forceDelete/{id}','ArticlesController@forceDelete');
+	Route::resource('articles','ArticlesController');
 
-    Route::get('categories/index','CategoriesController@index');
-    Route::resource('categories','CategoriesController');
+	Route::get('categories/index','CategoriesController@index');
+	Route::resource('categories','CategoriesController');
 
-    Route::get('tags/index','TagsController@index');
-    Route::resource('tags','TagsController');
+	Route::get('tags/index','TagsController@index');
+	Route::resource('tags','TagsController');
 
-    Route::get('settings/index','SettingsController@index');
-    Route::patch('settings/index','SettingsController@update');
-    
-    Route::post('uploadImage', 'ArticlesController@uploadImage');
+	Route::get('settings/index','SettingsController@index');
+	Route::patch('settings/index','SettingsController@update');
+	
+	Route::post('uploadImage', 'ArticlesController@uploadImage');
+
+	Route::get('setting/flush',function(){
+		\Cache::flush();
+		return 'cache flush ok';
+	});
 });
 
 
@@ -54,15 +59,13 @@ Route::get('logout','Admin\AuthController@logout');
 
 
 Route::get('foo',function(){
-    $name = 'BBB';
-    $alias = 'BBB';
-    $tag = \App\Tag::firstOrCreate(compact('name','alias'));
-    return $tag;
+	\Cache::flush();
+	return 'ok';
 });
 
 Route::get('bar',function(){
 
-    return view('aaa');
+	return view('aaa');
 
 });
 
@@ -73,15 +76,15 @@ Route::get('bar',function(){
 Route::group(['namespace' => 'Home'], function()
 {
 
-    Route::resource('/','HomeController@index');
+	Route::resource('/','HomeController@index');
 
-    Route::get('tags', 'TagsController@index');
-    Route::get('tags/{slug}', 'TagsController@show');
+	Route::get('tags', 'TagsController@index');
+	Route::get('tags/{slug}', 'TagsController@show');
 
-    Route::get('categories', 'CategoriesController@index');
-    Route::get('categories/{slug}', 'CategoriesController@show');
+	Route::get('categories', 'CategoriesController@index');
+	Route::get('categories/{slug}', 'CategoriesController@show');
 
-    Route::get('articles', 'ArticlesController@index');
-    Route::get('{slug}', 'ArticlesController@show');
+	Route::get('articles', 'ArticlesController@index');
+	Route::get('{slug}', 'ArticlesController@show');
 });
 

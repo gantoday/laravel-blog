@@ -63,6 +63,9 @@
 					<li>
 						<a href="/admin/settings/user">User Settings</a>
 					</li>
+					<li>
+						<a href="/admin/setting/flush">Cache Flush</a>
+					</li>
 				</ul>
 				<!-- /.nav-second-level -->
 			</li>
