@@ -5,7 +5,7 @@
 			@foreach($allCategories as $category)
 				<li>
 					@if($category->parent_id > 0)
-						--
+						&nbsp;&nbsp;&nbsp;--
 					@endif
 					<a href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
 				</li> 
