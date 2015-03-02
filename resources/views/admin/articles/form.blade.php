@@ -5,7 +5,7 @@
 
 <div class="form-group">
 	{!! Form::label('body', 'Body:') !!}
-	{!! Form::textarea('body', null, ['id' => 'editor', 'wrap' => 'virtual', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '22']) !!}
+	{!! Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Please Enter some text...',  'style' => 'overflow-x:hidden', 'rows' => '22']) !!}
 </div>
 
 <div class="form-group">
@@ -67,6 +67,7 @@
 		var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
 			mode: 'markdown',
 			lineNumbers: true,
+			lineWrapping: true,
 			theme: "default",
 			extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
 		});
