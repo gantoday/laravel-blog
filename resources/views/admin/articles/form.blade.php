@@ -17,10 +17,18 @@
 	{!! Form::label('category_id', 'Category:') !!}
 	<select class="form-control" name="category_id" id="category_id">
 		@foreach ($categories['top'] as $top_category)
-			<option value="{{ $top_category->id }}">{{ $top_category->name }}</option>
+			<option value="{{ $top_category->id }}" 
+			@if(isset($article->category_id) && $top_category->id == $article->category_id) 
+				selected 
+			@endif 
+			>{{ $top_category->name }}</option>
 			@if(isset($categories['second'][$top_category->id]))
 				@foreach ($categories['second'][$top_category->id] as $scategory)
-					<option value="{{ $scategory->id }}">&nbsp;&nbsp;&nbsp;{{ $scategory->name }}</option>
+					<option value="{{ $scategory->id }}"
+					@if(isset($article->category_id) && $scategory->id == $article->category_id)
+						selected
+					@endif
+					>&nbsp;&nbsp;&nbsp;{{ $scategory->name }}</option>
 				@endforeach
 			@endif
 		@endforeach
