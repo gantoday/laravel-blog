@@ -11,7 +11,7 @@
 			@foreach($article->tags as $key => $tag)
 				<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
 			@endforeach 
-			about {{ $article->timeDiffForHumans }}.</div>
+			about {{ $article->created_at->diffForHumans() }}.</div>
 			{!! str_limit($article->body_html, $limit = 500, $end = '...') !!}
 		</div><!-- /.blog-post -->
 		<hr>
