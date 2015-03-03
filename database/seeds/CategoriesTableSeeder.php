@@ -25,7 +25,7 @@ class CategoriesTableSeeder extends Seeder {
 			\App\Category::create([
 				'name' => $faker->unique()->word,
 				'slug' => $faker->unique()->slug,
-				'parent_id' => $faker->optional(0.3, '0')->randomElement($categoryIds),
+				'parent_id' => $faker->optional(0.5, '0')->randomElement($categoryIds),
 				'created_at' => $faker->dateTimeThisYear(),
 				'updated_at' => $faker->dateTimeThisYear(),
 			]);

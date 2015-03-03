@@ -10,6 +10,6 @@ php artisan key:generate
 php artisan migrate to create tables  
 php artisan db:seed to populate tables  
 
-default user ['ganto@qq.com'=>'123456']  
+default user ['ganto@qq.com' => '123456']  
 
 >redis or memcache cache is required

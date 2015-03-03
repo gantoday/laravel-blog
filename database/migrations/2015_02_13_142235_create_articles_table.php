@@ -16,10 +16,10 @@ class CreateArticlesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
-            $table->text('body');
-            $table->string('slug')->nullable();
-            $table->integer('click')->default(100);
-            $table->string('original')->nullable();
+			$table->text('body');
+			$table->string('slug')->nullable();
+			$table->integer('click')->default(100);
+			$table->string('original')->nullable();
 			$table->integer('user_id')->unsigned();
 			$table->integer('category_id')->unsigned();
 			$table->softDeletes();

@@ -14,7 +14,7 @@ class ArticlesTableSeeder extends Seeder {
 		$tagIds = \App\Tag::lists('id');
 		$categoryIds = \App\Category::lists('id');
 
-		foreach(range(1, 100) as $index)
+		foreach(range(1, 150) as $index)
 		{
 			$article = \App\Article::create([
 				'title' => $faker->sentence,
@@ -26,6 +26,7 @@ class ArticlesTableSeeder extends Seeder {
 				'original' => $faker->optional(0.5)->url,
 				'created_at' => $faker->dateTimeThisYear(),
 				'updated_at' => $faker->dateTimeThisYear(),
+				'deleted_at' => $faker->optional(0.1)->dateTimeThisYear(),
 			]);
 
 			$tags = $faker->randomElements($tagIds, 3);
