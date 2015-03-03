@@ -15,7 +15,7 @@
 /**
  * admin
  */
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'], function()
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
 	Route::get('index','AdminController@index');
 
