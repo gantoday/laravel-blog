@@ -6,13 +6,12 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
-		"predis/predis": "~1.1@dev",
 		"illuminate/html": "~5.0",
+		"predis/predis": "~1.1@dev",
+		"fzaninotto/faker": "~1.4",
 		"laracasts/flash": "~1.3",
 		"erusev/parsedown": "~1.5",
-		"nickcernis/html-to-markdown": "dev-master",
 		"graham-campbell/htmlmin": "~3.0",
-		"fzaninotto/faker": "~1.4",
 		"roumen/sitemap": "~2.5"
 	},
 	"require-dev": {
