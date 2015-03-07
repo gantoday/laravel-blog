@@ -38,6 +38,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		});
 	}
 
+	//暂时不用,改成使用helpers获取设置值
 	/*private function composeSettings()
 	{
 		view()->composer('*',function($view){
