@@ -8,8 +8,8 @@
 						&nbsp;&nbsp;&nbsp;--
 					@endif
 					<a href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
-				</li> 
-			@endforeach 
+				</li>
+			@endforeach
 		</ol>
 	</div>
 	<div class="sidebar-module sidebar-module-inset">
@@ -38,4 +38,4 @@
 			<li><a href="http://www.google.com">谷歌</a></li>
 		</ol>
 	</div>
-</div><!-- /.blog-sidebar -->	
+</div><!-- /.blog-sidebar -->

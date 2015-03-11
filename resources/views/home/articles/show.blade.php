@@ -8,7 +8,7 @@
 <div class="col-sm-8 blog-main">
 	<div class="blog-post">
 		<h2 class="blog-post-title">{{ $article->title }}</h2>
-		<div class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged 
+		<div class="blog-post-meta">posted in <a href="/categories/{{ $article->category->slug }}">{{ $article->category->name }}</a> and tagged
 		@foreach($article->tags as $key => $tag)
 			<a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
 		@endforeach
@@ -32,7 +32,7 @@
 			ds.type = 'text/javascript';ds.async = true;
 			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
 			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0] 
+			(document.getElementsByTagName('head')[0]
 			 || document.getElementsByTagName('body')[0]).appendChild(ds);
 		})();
 		</script>

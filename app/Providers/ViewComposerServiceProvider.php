@@ -2,49 +2,45 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class ViewComposerServiceProvider extends ServiceProvider {
+class ViewComposerServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     */
+    public function boot()
+    {
+        $this->composeSidebar();
+        //$this->composeSettings();
+    }
 
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->composeSidebar();
-		//$this->composeSettings();
-	}
+    /**
+     * Register the application services.
+     */
+    public function register()
+    {
+        //
+    }
 
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		//
-	}
+    private function composeSidebar()
+    {
+        view()->composer('home.partials.sidebar', function ($view) {
 
-	private function composeSidebar()
-	{
-		view()->composer('home.partials.sidebar',function($view){
+            $allTags = \App\Tag::all();
+            $allCategories = \App\Category::getSortedCategories();
+            $NewestArticles = \App\Article::latest()->take(15)->get();
+            $hottestArticles = \App\Article::orderBy('click')->take(15)->get();
 
-			$allTags=\App\Tag::all();
-			$allCategories=\App\Category::getSortedCategories();
-			$NewestArticles=\App\Article::latest()->take(15)->get();
-			$hottestArticles=\App\Article::orderBy('click')->take(15)->get();
+            $view->with(compact('allTags', 'allCategories', 'NewestArticles', 'hottestArticles'));
+        });
+    }
 
-			$view->with(compact('allTags', 'allCategories', 'NewestArticles','hottestArticles'));
-		});
-	}
+    //暂时不用,改成使用helpers获取设置值
+    /*private function composeSettings()
+    {
+        view()->composer('*',function($view){
+            $settings=\App\Setting::getSettingsArr();
+            $view->with(compact('settings'));
 
-	//暂时不用,改成使用helpers获取设置值
-	/*private function composeSettings()
-	{
-		view()->composer('*',function($view){
-			$settings=\App\Setting::getSettingsArr();
-			$view->with(compact('settings'));
-
-		});
-	}*/
+        });
+    }*/
 }

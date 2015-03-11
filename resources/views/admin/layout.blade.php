@@ -22,7 +22,7 @@
 
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-			
+
 			@include('admin.partials.navbar')
 
 			@include('admin.partials.sidebar')
@@ -32,7 +32,7 @@
 		<div id="page-wrapper">
 
 			@include('flash::message')
-			
+
 			@yield('content')
 
 			<div class="row">
