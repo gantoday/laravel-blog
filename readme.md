@@ -12,6 +12,6 @@ php artisan db:seed to populate tables
 
 default user ['ganto@qq.com' => '123456']  
 
->redis or memcache cache is required.
+>redis or memcached cache is required.
 
 >homestead is recommended.
