@@ -2,7 +2,7 @@
 
 ## Installation
 
-git clone https://github.com/gantoo/laravel-blog.git projectname  
+git clone https://github.com/gantoday/laravel-blog.git projectname  
 cd projectname  
 composer install  
 create a database and inform .env  
